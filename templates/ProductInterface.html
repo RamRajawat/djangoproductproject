@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/project.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-3.6.3.min.js"></script>
+        <script src="/static/project.js"></script>
+
+        <div class="maincontainer">
+            <div class="box">
+               <form class="row g-3" action="/productsubmit" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                <div class="col-md-12" style=" width:50vw;display: flex;flex-direction: row; align-items: center;justify-content: space-between;">
+                   <div style="display: flex; flex-direction: row;">
+                    <img src="/static/logo.jpg" width="40"/>
+                    <div class="headingtext">Product Interface</div>
+                   </div>
+                   <div>
+                    <a href="/fetchallproducts" style="text-decoration: none;"><img src="/static/list.png" width="40"/></a>
+                   </div>
+                 </div>   
+                <div class="col-md-6">
+                    <label for="producttype" class="form-label"><b>Product Type</b></label>
+                    <select id="producttype" name="producttypeid" class="form-select" aria-label="Default select example">
+                        <option selected>-Select Type-</option>
+                        
+                      </select>
+                </div> 
+                <div class="col-md-6">
+                    <label for="productitem" class="form-label"><b>Product Item</b></label>
+                    <select id="productitem" name="productitemid"  class="form-select" aria-label="Default select example">
+                        <option selected>-Select Product-</option>
+                        
+                      </select>
+                </div> 
+                <div class="col-md-6">
+                    <div><b>Product Status</b></div>
+                    <div style="display: flex; align-items: center; justify-content: space-evenly; flex-direction: row;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="Delivered" name="productstatus" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                         Delivered
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" value="Not Delivered" name="productstatus" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                         Not Delivered
+                        </label>
+                      </div>
+                 </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="desc" class="form-label"><b>Description</b></label>
+                    <input type="text" name="description" class="form-control" id="desc">
+                </div> 
+              
+                <div class="col-md-6">
+                    <label for="price" class="form-label"><b>Price</b></label>
+                    <input type="text" name="price" class="form-control" id="price">
+                </div> 
+                <div class="col-md-6">
+                    <label for="offer" class="form-label"><b>Offer</b></label>
+                    <input type="text"  name="offer" class="form-control" id="offer">
+                </div> 
+                <div class="col-md-12"> 
+                    
+          <label for="formFile" class="form-label"><b>Product Picture</b></label>
+          <input class="form-control"  type="file" id="formFile" name="picture">
+                 </div>
+        <div class="col-md-6" style="display: flex;justify-content:center; align-items: center;" >
+            <button style="width: 75%;" type="submit" class="btn btn-primary">Submit</button>
+           </div>
+            <div class="col-md-6" style="display: flex;justify-content:center; align-items: center; ">
+          <button type="reset" style="width: 75%;" class="btn btn-primary">Reset</button>
+            </div>
+        
+            <div class="col-md-12" style="display: flex;justify-content:center; align-items: center;" >
+              <span style="font-weight: bold;">{{message }}</span>
+            </div>    
+        
+               </form>          
+            </div>
+           </div>
+        
+    </head>
+</html>
